@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container">
+    产品列表
+</view>
