@@ -1,4 +1,24 @@
 <!--index.wxml-->
 <view class="container">
-    购物车
+    <view class="cart-top d-flex-row align-items-center justify-content-between position-fixed">
+        <view class="cart-l font-28 color-2">
+            <text wx:if="{{type == 'done'}}">添加赠品</text>
+        </view>
+        <view class="cart-r font-28 color-2" bindtap="editCart">{{type == 'done'?'编辑':'完成'}}</view>
+    </view>
+    <view style="margin-top:100rpx;margin-bottom:168rpx;">
+        <cart cartList="{{cart}}" isLogin="{{true}}" type="{{type}}"/>
+    </view>
+    <view class="cart-bottom d-flex-row align-items-center justify-content-between position-fixed font-weight-5 {{isIOS?'bottom-68':''}}">
+        <view wx:if="{{type == 'done'}}" class="cart-b-l font-26 color-0-85">合计：
+            <text class="font-24 color-red">￥</text>
+            <text class="font-32 color-red">3650</text>
+        </view>
+        <view wx:if="{{type == 'edit'}}">
+            <radio class="radio" checked="{{isSelectAll}}" color="#F12C20" bindtap="selectAllChange">
+                <text>全选</text>
+            </radio>
+        </view>
+        <view class="cart-b-r font-26 color-f ">{{type == 'edit' ? '删除': '去结算（'+cart.length+'）'}}</view>
+    </view>
 </view>

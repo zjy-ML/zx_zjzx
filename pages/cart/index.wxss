@@ -1,1 +1,41 @@
 /**index.wxss**/
+
+page {
+    background: #f7f7f7;
+}
+
+.cart-top {
+    padding: 0 32rpx;
+    height: 88rpx;
+    border-bottom: 1px solid #eee;
+    top: 0;
+    width: 750rpx;
+    z-index: 3;
+    background: #fff;
+}
+
+.cart-bottom {
+    padding-left: 24rpx;
+    height: 100rpx;
+    bottom: 0;
+    width: 750rpx;
+    z-index: 3;
+    background: #fff;
+     border-top: 1px solid #ddd; 
+}
+
+.bottom-ios {
+    bottom: 68rpx;
+}
+.cart-b-l{
+    /* border-top: 1px solid #ddd;
+    height: 100rpx; */
+}
+
+.cart-b-r {
+    width: 218rpx;
+    height: 100rpx;
+    background: rgba(241, 44, 32, 1);
+    line-height: 100rpx;
+    text-align: center;
+}

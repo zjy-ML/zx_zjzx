@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "product": "../../../components/product/index",
+        "null":"../../../components/null/index"
+    }
+}

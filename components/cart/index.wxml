@@ -1,0 +1,26 @@
+<view class="cart">
+    <view class="cart-item d-flex-row justify-content-between align-items-center" wx:for="{{cartList}}" wx:key="index">
+        <view class="cart-l" wx:if="{{type == 'edit'}}">
+            <radio class="radio" color="#F12C20" value="{{index}}" checked="{{item.checked}}" bindtap="checkStatus" />
+        </view>
+        <view class="productItem d-flex-row ">
+            <view class="product-l" >
+                <image src="{{item.url}}"></image>
+            </view>
+            <view class="product-r d-flex-column justify-content-between">
+                <view class="product-title font-26 font-weight-5 text-one {{type == 'edit'? 'product-title-edit':'product-title-done'}}" >{{item.title}}</view>
+                <view class='product-store font-22 color-0-45' >库存：{{item.store}}</view>
+                <view class='product-sale font-22 color-0-45'>今日销量：{{item.sale}}</view>
+                <view class='product-price d-flex-row justify-content-between'>
+                    <view class="product-price-num color-red font-24">
+                        <view>￥
+                            <text class="font-weight-5 font-32">{{item.price}}</text>
+                        </view>
+                    </view>
+                    <view class="number"></view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>

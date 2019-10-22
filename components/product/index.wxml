@@ -1,0 +1,16 @@
+<view class="productItem d-flex-row " wx:for="{{productList}}" wx:key="index">
+    <view class="product-l">
+        <image src="{{item.url}}"></image>
+    </view>
+    <view class="product-r d-flex-column justify-content-between">
+        <view class="product-title font-26 font-weight-5 text-one">{{item.title}}</view>
+        <view class='product-store font-22 color-0-45' wx-if="{{isLogin}}">库存：{{item.store}}</view>
+        <view class='product-sale font-22 color-0-45'>今日销量：{{item.sale}}</view>
+        <view class='product-price d-flex-row justify-content-between'>
+            <view class="product-price-num color-red font-24" >
+                <view wx-if="{{isLogin}}">￥<text class="font-weight-5 font-32">{{item.price}}</text></view>
+            </view>
+            <view class="cart"></view>
+        </view>
+    </view>
+</view>

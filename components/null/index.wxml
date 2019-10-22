@@ -1,0 +1,4 @@
+<view class="null d-flex-column justify-content-center align-items-center">
+    <image style="width:200rpx;height:200rpx;border-radius:50%;" class="m-b-35" src="{{url}}"></image>
+    <view class="font-30 color-0-45">{{text}}</view>
+</view>

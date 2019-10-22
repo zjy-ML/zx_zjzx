@@ -1,0 +1,42 @@
+/* components/product/index.wxss */
+.cart{
+    background:#F7F7F7;
+    
+}
+.cart-item{
+    background:#fff;
+    margin-bottom:12rpx;
+}
+.productItem{
+    padding: 24rpx 24rpx 24rpx 21rpx;
+}
+.product-l{
+    width: 240rpx;
+    height: 240rpx;
+    margin-right:20rpx;
+}
+.product-l image{
+    width: 240rpx;
+    height: 240rpx;
+    min-width: 240rpx;
+}
+
+.product-title-edit{
+    width:378rpx;
+}
+.product-title-done{
+    width:458rpx;
+}
+/* .cart{
+    margin-right: 51rpx;
+    width:44rpx;
+    height:44rpx;
+    background:rgba(250,50,107,1);
+    border-radius: 50%;
+} */
+.checkbox{
+    border-radius: 50%;
+}
+.radio{
+    padding: 0 0 0 24rpx;
+}

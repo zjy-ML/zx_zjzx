@@ -4,7 +4,9 @@
         "pages/cart/index",
         "pages/customer/index",
         "pages/mine/index",
-        "pages/login/index"
+        "pages/login/index",
+        "pages/product/search/index",
+        "pages/product/search/searchResult"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -13,8 +15,8 @@
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
-        "color": "#cccccc",
-        "selectedColor": "#000000",
+        "color": "rgba(0,0,0,0.45)",
+        "selectedColor": "#F12C20",
         "backgroundColor": "#ffffff",
         "borderStyle": "black",
         "list": [

@@ -1,0 +1,26 @@
+/* components/product/index.wxss */
+.productItem{
+    padding: 24rpx 21rpx;
+    margin-bottom:12rpx;
+    background:#fff;
+}
+.product-l{
+    width: 240rpx;
+    height: 240rpx;
+    margin-right:36rpx;
+}
+.product-l image{
+    width: 240rpx;
+    height: 240rpx;
+    min-width: 240rpx;
+}
+.product-title{
+    width: 429rpx;
+}
+.cart{
+    margin-right: 51rpx;
+    width:44rpx;
+    height:44rpx;
+    background:rgba(250,50,107,1);
+    border-radius: 50%;
+}

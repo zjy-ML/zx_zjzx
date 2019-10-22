@@ -1,0 +1,33 @@
+<!--pages/product/search/index.wxml-->
+<view class="search">
+    <view class="position-fixed search-content">
+        <view class="search-top position-relative d-flex-row align-items-center justify-content-between">
+            <input class="search-input font-26 color-3" focus type="text" confirm-type="search" bindconfirm="goSearch" value="{{searchText}}" bindinput="searchInput"></input>
+            <navigator hover-class="none" hover-stop-propagation="true" delta="1" open-type="navigateBack">
+                <view class="font-30 color-0-65">取消</view>
+            </navigator>
+            <view class="icon-text position-absolute d-flex-row align-items-center">
+                <icon type="search m-r-10" size="16"></icon>
+            </view>
+            <view bindtap="clearSearch" wx:if="{{searchText && searchText.length}}" class="icon-text icon-right position-absolute d-flex-row align-items-center">
+                <icon type="clear m-r-10" size="16"></icon>
+            </view>
+        </view>
+    </view>
+    <view class="d-flex-row justify-content-between algin-items-center font-26 color-0-45 p-l-24 p-r-24 m-b-25" style="margin-top:110rpx;">
+        <view>
+            <icon type="waiting" size="16" style="vertical-align:top;" color="#ccc" class="m-r-10"></icon>历史搜索
+        </view>
+        <view>清空历史记录</view>
+    </view>
+    <view class="history p-l-24 p-r-24 font-26 color-0-65 d-flex-row flex-wrap">
+        <block wx:if="{{history.length}}">
+            <block wx:for="{{history}}" wx:key="index">
+                <view class="his-item" bindtap="goResult" data-value="{{item}}">{{item}}</view>
+            </block>
+        </block>
+        <block wx:else>
+            <view>暂无历史搜索记录</view>
+        </block>
+    </view>
+</view>

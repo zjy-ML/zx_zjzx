@@ -1,0 +1,30 @@
+<!--pages/product/search/index.wxml-->
+<view class="search">
+    <view class="position-fixed search-content">
+        <view class="search-top position-relative d-flex-row align-items-center justify-content-between">
+            <input class="search-input font-26 color-3" bindfocus="goBack" type="text" confirm-type="search" value="{{searchText}}" bindinput="searchInput"></input>
+            <navigator hover-class="none" hover-stop-propagation="true" delta="1" open-type="navigateBack">
+                <view class="font-30 color-0-65">取消</view>
+            </navigator>
+            <view class="icon-text position-absolute d-flex-row align-items-center">
+                <icon type="search m-r-10" size="16"></icon>
+            </view>
+            <!-- <view bindtap="clearSearch" wx:if="{{searchText && searchText.length}}" class="icon-text icon-right position-absolute d-flex-row align-items-center">
+                <icon type="clear m-r-10" size="16"></icon>
+            </view> -->
+        </view>
+    </view>
+    <view style="margin-top:88rpx;">
+        <block wx:if="{{productList.length}}">
+            <view style="margin-bottom:68rpx;">
+                <product productList="{{productList}}" isLogin="{{true}}" />
+            </view>
+        </block>
+        <block wx:else>
+            <view style="margin-top:50%">
+                <null url="{{'/assets/images/null/warn.png'}}" text="{{'抱歉！暂无相关搜索内容'}}"/>
+            </view>
+
+        </block>
+    </view>
+</view>

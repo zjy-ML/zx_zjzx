@@ -1,4 +1,18 @@
-<!--index.wxml-->
-<view class="container">
-    产品列表
+<!--pages/product/index.wxml-->
+<view class="product">
+    <view class="position-fixed search-content">
+        <view class="search-top position-relative">
+            <input class="search-input" bindfocus="onfocus"></input>
+            <view class="icon-text position-absolute d-flex-row align-items-center">
+                <icon type="search m-r-10" size="16"></icon>
+                <text class="font-26 .color-0-65">产品搜索</text>
+            </view>
+        </view>
+    </view>
+    <view style="margin-top:88rpx;margin-bottom:68rpx;">
+        <product productList="{{productList}}" isLogin="{{true}}"/>
+    </view>
+    <view class="float-btn position-fixed d-flex-row align-items-center justify-content-center">
+        <icon type="search"></icon>
+    </view>
 </view>
