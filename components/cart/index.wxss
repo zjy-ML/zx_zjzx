@@ -8,7 +8,7 @@
     margin-bottom:12rpx;
 }
 .productItem{
-    padding: 24rpx 24rpx 24rpx 21rpx;
+    padding: 24rpx 21rpx;
 }
 .product-l{
     width: 240rpx;
@@ -25,7 +25,8 @@
     width:378rpx;
 }
 .product-title-done{
-    width:458rpx;
+    /* width:458rpx; */
+    width: 429rpx;
 }
 /* .cart{
     margin-right: 51rpx;
