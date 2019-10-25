@@ -7,6 +7,13 @@ Component({
      * 组件的属性列表
      */
     properties: {
+        type: {
+            type: String,
+            /**
+             * value: search | address | order | msg | cart
+             */
+            value: '' 
+        },
         url:{
             type:String,
             value:''

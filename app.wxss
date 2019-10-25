@@ -1,7 +1,10 @@
 /**app.wxss**/
+@import "/assets/css/errInfo.wxss";
+@import "/assets/css/color";
 
 page{
-    background:rgba(255,255,255,1);
+    /* background:rgba(255,255,255,1); */
+    background-color: rgba(247,247,247,1);
     width: 750rpx;
     overflow-x: hidden;
 }
@@ -13,7 +16,24 @@ view {
 button::after {
     border: none;
 }
-
+.w-100vw {
+    width: 100vw;
+}
+.h-100vh {
+    height: 100vh;
+}
+.w-100 {
+    width: 100%;
+}
+.h-100 {
+    height: 100%;
+}
+.bg-center {
+    display: inline-flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 /* flex布局 */
 .d-flex-row {
     display: -webkit-box;
@@ -133,6 +153,27 @@ button::after {
     -webkit-box-orient: vertical;
 }
 
+ /*旋转加载动画*/
+.donut {
+    display: inline-block;
+    border: 4rpx solid rgba(0, 0, 0, 0.1);
+    border-left-color: #7983ff;
+    border-radius: 50%;
+    width: 60rpx;
+    height: 60rpx;
+    animation: donut-spin 1.2s linear infinite;
+}
+@keyframes donut-spin  {
+    0% {
+        transform: rotate(0deg)
+    }
+        
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+
 /* font */
 .font-14 {
     font-size: 14rpx;
@@ -207,13 +248,13 @@ button::after {
     color: #F12C20;
 }
 .color-0-85{
-    color:rgba(34,34,34,0.85);
+    color:rgba(0,0,0,0.85);
 }
 .color-0-65{
     color:rgba(0,0,0,0.65);
 }
 .color-0-45{
-    color:rgba(34,34,34,0.45);
+    color:rgba(0,0,0,0.45);
 }
 .color-2{
     color:#222;
@@ -567,7 +608,7 @@ button::after {
 }
 [class*=icon-null]{
   font-family: 'iconfont' !important;
-  speak: none;
+  speak-as: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

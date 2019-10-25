@@ -1,7 +1,9 @@
+
 //app.js
+
 App({
   onLaunch: function () {
-      let that = this
+    let that = this
     wx.getSystemInfo({
         success: function(res) {
             let str = res.system.toLowerCase()
@@ -11,6 +13,7 @@ App({
             }
         },
     })
+    // wx.$API = $API
   },
   globalData: {
     userInfo: null,

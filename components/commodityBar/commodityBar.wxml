@@ -1,0 +1,22 @@
+<!--components/commodityBar/commodityBar.wxml-->
+
+<view wx:if="{{isSelect}}" class="bg-light box d-flex-row align-items-center">
+    
+    <view class="select" bind:tap="switchSelect">
+        <view class="selected" style="{{select ? '':'transform: scale(0)'}}"></view>
+    </view>
+    <view class="image">
+        <image src="{{imgUrl}}" class="w-100 h-100" mode="aspectFill" />
+    </view>
+    <view class="content-select">
+        <slot></slot>
+    </view>
+</view>
+<view wx:else class="bg-light box d-flex-row align-items-center">
+    <view class="image">
+        <image src="{{imgUrl}}" class="w-100 h-100" mode="aspectFill" />
+    </view>
+    <view class="content-null">
+        <slot></slot>
+    </view>
+</view>

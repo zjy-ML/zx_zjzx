@@ -1,6 +1,7 @@
 {
     "navigationBarTitleText": "召香下单小程序",
     "usingComponents": {
-       "product":"../../components/product/index"
+       "product":"/components/product/index",
+       "commodity-bar":"/components/commodityBar/commodityBar"
     }
 }

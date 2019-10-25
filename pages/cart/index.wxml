@@ -7,7 +7,7 @@
         <view class="cart-r font-28 color-2" bindtap="editCart">{{type == 'done'?'编辑':'完成'}}</view>
     </view>
     <view style="margin-top:100rpx;margin-bottom:168rpx;">
-        <cart cartList="{{cart}}" isLogin="{{true}}" type="{{type}}"/>
+        <cart cartList="{{cart}}" isLogin="{{true}}" type="{{type}}"></cart>
     </view>
     <view class="cart-bottom d-flex-row align-items-center justify-content-between position-fixed font-weight-5 {{isIOS?'bottom-68':''}}">
         <view wx:if="{{type == 'done'}}" class="cart-b-l font-26 color-0-85">合计：

@@ -1,0 +1,4 @@
+.errInfo{
+    font-size: 42rpx;
+    color: rgba(0,0,0,0.45);
+}

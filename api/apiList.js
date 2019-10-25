@@ -1,12 +1,18 @@
 import api from './api';
+import { gFunc } from "../globlFunc";
 
-const path = '';
+const path = 'http://local.zx.com/api/wx';
 
-export default {
-    //微信授权
+const $API = {
+    /**
+     * 微信授权
+     * @param data : {iv: string,encryptedData: string,rawData: string}
+     */
     wxAuthorize(data) {
         console.log(data);
+         
         return new Promise((resolve, reject) => {
+             
             wx.login({
                 success(res) {
                     api.post({
@@ -24,11 +30,15 @@ export default {
                                 ...res.model,
                                 ...JSON.parse(data.rawData)
                             }
+                             
                             wx.setStorageSync('user', JSON.stringify(_user));
+                             
                             wx.$store.setValueAction({
                                 user: _user
                             });
+                             
                             gFunc.isIdentify(res.model.wechat_user.status)
+                             
                             wx.$store.clearStorage(res.model.expires_in)
 
                             resolve(true);
@@ -40,9 +50,15 @@ export default {
             });
         })
     },
-    //微信登录
-    wxLogin(data) {
+
+    /**
+     * 微信登录
+     * 
+     */
+    wxLogin() {
+         
         return new Promise((resolve, reject) => {
+             
             wx.login({
                 success(res) {
                     api.post({
@@ -58,13 +74,18 @@ export default {
                                 ...res.model,
                                 // ...JSON.parse(data.rawData)
                             }
+                             
                             wx.setStorageSync('user', JSON.stringify(_user));
+                             
                             wx.$store.setValueAction({
                                 user: _user
                             });
                             // wx.$store.clearStorage(res.model.expires_in)
+                             
                             console.log('getApp....', getApp())
+                             
                             getApp().clearStorage(res.model.expires_in)
+                             
                             gFunc.isIdentify(res.model.wechat_user.status)
                             resolve(true);
                         })
@@ -78,10 +99,15 @@ export default {
             });
         })
     },
-    // 获取手机号授权
+
+    /**
+     * 获取手机号授权
+     * @param {*} data 
+     */
     postPhoneNumber(data) {
         console.log(data);
         return new Promise((resolve, reject) => {
+             
             wx.login({
                 success(res) {
                     api.post({
@@ -91,15 +117,20 @@ export default {
                                 code: res.code,
                                 encryptedData: encodeURIComponent(data.encryptedData),
                                 iv: encodeURIComponent(data.iv),
+                                 
                                 wechat_id: wx.$store.state.user.wechat_user.id
                             },
                         })
                         .then((res) => {
+                             
                             wx.$store.state.user.wechat_user.phone = res.model;
                             let _user = {
+                                 
                                 ...wx.$store.state.user,
                             }
+                             
                             wx.setStorageSync('user', JSON.stringify(_user));
+                             
                             wx.$store.setValueAction({
                                 user: _user
                             });
@@ -108,11 +139,17 @@ export default {
                 },
                 fail(err) {
                     console.error(err);
-                    reject(res)
+                     
+                    reject(err)
                 },
             });
         })
     },
+
+    /**
+     * 文件上传
+     * @param {*} data 
+     */
     postUploadFile(data) {
         console.log(data);
         return api.uploadFile({
@@ -127,14 +164,37 @@ export default {
             }
         });
     },
-    // 关注项目列表
-    postFollowproject(data) {
-        return api.post({
-            token: true,
-            url: `${path}/followproject/list`,
+ 
+    /**
+     * 商品列表
+     * @param {Object} data
+     * @prop {string} data.title 产品名称
+     */
+    getProductList(data) {
+        return api.get({
+            token: false,
+            url: `${path}/product/list`,
             data: {
                 ...data,
+                __debugger: 2
             }
         });
-    }
+    },
+    /**
+     * 刷新库存
+     * @param {Object} data
+     * @prop {number} data.product_id 产品ID
+     */
+    getProductStock(data) {
+        return api.get({
+            token: false,
+            url: `${path}/product/stock`,
+            data: {
+                ...data,
+                __debugger: 2
+            }
+        });
+    },
 }
+
+export default $API

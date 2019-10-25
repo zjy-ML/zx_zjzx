@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "product": "../../../components/product/index",
-        "null":"../../../components/null/index"
+        "null":"../../../components/null/index",
+        "commodity-bar": "/components/commodityBar/commodityBar"
     }
 }

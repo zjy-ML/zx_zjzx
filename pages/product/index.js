@@ -1,41 +1,16 @@
 // pages/product/index.js
+import $API from "../../api/apiList";
+import {gFunc} from "../../globlFunc";
+import {publicParam, pubclieFunc} from "./public";
+
+ 
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        productList: [{
-            url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1328874460,2431333110&fm=26&gp=0.jpg',
-            title: '艾医生水乳精华小瓶装艾医生水乳精华小瓶装',
-            store: 533,
-            sale: 2345,
-            price: 345
-        }, {
-            url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1328874460,2431333110&fm=26&gp=0.jpg',
-            title: '艾医生水乳精华小瓶装艾医生水乳精华小瓶装',
-            store: 533,
-            sale: 2345,
-            price: 345
-        }, {
-            url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1328874460,2431333110&fm=26&gp=0.jpg',
-            title: '艾医生水乳精华小瓶装艾医生水乳精华小瓶装',
-            store: 533,
-            sale: 2345,
-            price: 345
-        }, {
-            url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1328874460,2431333110&fm=26&gp=0.jpg',
-            title: '艾医生水乳精华小瓶装艾医生水乳精华小瓶装',
-            store: 533,
-            sale: 2345,
-            price: 345
-        }, {
-            url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1328874460,2431333110&fm=26&gp=0.jpg',
-            title: '艾医生水乳精华小瓶装艾医生水乳精华小瓶装',
-            store: 533,
-            sale: 2345,
-            price: 345
-        }]
+        ...publicParam
     },
 
     onfocus() {
@@ -43,11 +18,24 @@ Page({
             url: './search/index',
         })
     },
+    breakProduct(val) {
+        let _val = gFunc.getDataset(val)
+        pubclieFunc.breakProduct(this, Number(_val.id), Number(_val.index))
+    },
+    pushProductList() {
+        pubclieFunc.pushProductList(this,'');
+    },
+     
+    addCart(id){
+        pubclieFunc.addCart(Number(gFunc.getDataset(id).id))
+    },
     /**
      * 生命周期函数--监听页面加载
      */
+     
     onLoad: function(options) {
-
+        console.log('asd');
+        this.pushProductList()
     },
 
     /**
@@ -89,13 +77,25 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
-
+        console.log("到底");
+        let _pageNum = this.data.pageNum
+        if(_pageNum.last_page && _pageNum.page > _pageNum.last_page){
+            console.log("最后一页");
+            gFunc.showToast("最后一页")
+            return ;
+        } else {
+            this.setData({
+                showLodding: true
+            })
+            this.pushProductList()
+        }
+        
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    // onShareAppMessage: function() {
 
-    }
+    // }
 })

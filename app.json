@@ -23,26 +23,26 @@
             {
                 "pagePath": "pages/product/index",
                 "text": "产品列表",
-                "iconPath": "",
-                "selectedIconPath": ""
+                "iconPath": "./assets/images/tab_bar/product.png",
+                "selectedIconPath": "./assets/images/tab_bar/producted.png"
             },
             {
                 "pagePath": "pages/cart/index",
                 "text": "购物车",
-                "iconPath": "",
-                "selectedIconPath": ""
+                "iconPath": "./assets/images/tab_bar/cart.png",
+                "selectedIconPath": "./assets/images/tab_bar/carted.png"
             },
             {
                 "pagePath": "pages/customer/index",
                 "text": "客户",
-                "iconPath": "",
-                "selectedIconPath": ""
+                "iconPath": "./assets/images/tab_bar/customer.png",
+                "selectedIconPath": "./assets/images/tab_bar/customered.png"
             },
             {
                 "pagePath": "pages/mine/index",
                 "text": "我的",
-                "iconPath": "",
-                "selectedIconPath": ""
+                "iconPath": "./assets/images/tab_bar/mine.png",
+                "selectedIconPath": "./assets/images/tab_bar/mined.png"
             }
         ]
     },

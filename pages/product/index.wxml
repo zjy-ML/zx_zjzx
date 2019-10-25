@@ -10,9 +10,52 @@
         </view>
     </view>
     <view style="margin-top:88rpx;margin-bottom:68rpx;">
-        <product productList="{{productList}}" isLogin="{{true}}"/>
+        <view wx:for="{{productList}}" wx:key="{{pItem.image_url}}" wx:for-item="pItem">
+            <commodity-bar imgUrl="{{pItem.image_url}}" >
+                <view class="w-100 h-100 d-flex-column justify-content-between" >
+                    <view class="w-100 text-one product-title">{{pItem.title}}</view>
+                    <view class="w-100 product-info d-flex-row justify-content-between">
+                        <view >
+                            库存：{{pItem.stock_count}}
+                        </view>
+                        <view bind:tap="breakProduct" 
+                            data-index="{{index}}"
+                            data-id="{{pItem.id}}"
+                            class="break-button">
+                            点击刷新
+                        </view>
+                    </view>
+                    <view class="w-100 product-info">
+                        今日销量： {{pItem.trade_item_count}}
+                    </view>
+                    <view class="w-100 product-price d-flex-row align-items-center justify-content-between">
+                        <view>¥{{pItem.sale_price}}</view>
+                        <view class="addcart" data-id="{{pItem.id}}" bind:tap="addCart"></view>
+                    </view>
+                </view>
+            </commodity-bar>
+        </view>
+        
+        <!-- <product productList="{{productList}}" isLogin="{{true}}"/> -->
     </view>
     <view class="float-btn position-fixed d-flex-row align-items-center justify-content-center">
         <icon type="search"></icon>
+    </view>
+    <view wx:if="{{showLodding}}" class="loadding w-100 d-flex-row d-flex-center">
+        <view class="donut"></view>
+    </view>
+    <view class="detail-box">
+        <view class="detail d-flex-column">
+            <view class="head d-flex-row">
+                <view class="image-box">
+                    <image class="w-100 h-100" src="{{detail.image_url}}" mode="aspectFill" />
+                </view>
+                <view class="content d-flex-column justify-content-between">
+                    <view class="product-title">asdasdasd</view>
+                    <view class="product-price">¥1231212</view>
+                </view>
+            </view>
+            
+        </view>
     </view>
 </view>
